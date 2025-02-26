@@ -1,4 +1,4 @@
-# Guía de Turismo (Cádiz de ejemplo).
+# Guía de Turismo Sevilla.
 
 Cuenta con una página de inicio que muestra todas las ubicaciones utilizando el componente 'cards' de Angular Material. Cada tarjeta presenta el nombre del lugar como título, una imagen principal, una breve descripción, las calificaciones promedio de la ubicación y un botón "Leer más" que lleva a la página detallada del sitio.
 
