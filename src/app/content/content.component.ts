@@ -35,7 +35,7 @@ export class ContentComponent implements OnInit {
 
   possibleRating = ['0', '1', '2', '3', '4', '5'];
 
-  loggedIn: boolean = false;
+  loggedIn: boolean = true;
   loggedUserId: string = '';
   
 
@@ -53,25 +53,29 @@ export class ContentComponent implements OnInit {
 
   imagenCentral: string = '';
 
-ngOnInit(): void {
+  ngOnInit(): void {
+    this.checkLoginStatus(); // Verifica si hay un token antes de cargar el contenido
+
     this.route.params.subscribe((params) => {
-        const placeId = params['id'];
-        if (placeId) {
-            this.placeService.getSiteById(placeId).subscribe({
-                next: (place) => {
-                    this.place = place;
-                    this.imagenCentral = place.imageUrl;
-                    this.isLoading = false;
-                },
-                error: (err) => {
-                    console.error("Error al obtener el sitio:", err);
-                    this.place = null;
-                    this.isLoading = false;
-                }
-            });
-        }
+      const placeId = params['id'];
+      if (placeId) {
+        this.placeService.getSiteById(placeId).subscribe({
+          next: (place) => {
+            this.place = place;
+            this.imagenCentral = place.imageUrl;
+            this.isLoading = false;
+          },
+          error: (err) => {
+            console.error("Error al obtener el sitio:", err);
+            this.place = null;
+            this.isLoading = false;
+          }
+        });
+      }
     });
-}
+  }
+
+  
 
 /**
  * Método para cambiar la imagen central al hacer clic en una imagen pequeña.

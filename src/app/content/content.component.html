@@ -47,7 +47,8 @@
       <p>No hay comentarios disponibles.</p>
     </ng-template>
 
-    <div *ngIf="loggedIn && !place.commentUser?.includes(loggedUserId)">
+    <div *ngIf="loggedIn">
+      
       <form [formGroup]="formCommentRating" class="commentForm" (submit)="submitformCommentRating()">
         <mat-form-field appearance="outline">
           <mat-label>Valoración</mat-label>

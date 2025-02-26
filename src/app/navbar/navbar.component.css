@@ -47,3 +47,54 @@ button {
 button:hover {
   background-color: #218838;
 }
+
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 18px;
+    margin: 2%;
+  }
+
+  button,
+  .menuButton {
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  mat-toolbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .example-spacer {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 18px;
+  }
+
+  span {
+    font-size: 16px;
+    margin: 3%;
+  }
+
+  button,
+  .menuButton {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  mat-toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+}

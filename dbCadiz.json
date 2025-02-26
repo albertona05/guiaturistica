@@ -10,9 +10,15 @@
         "../assets/imgs/img0-1.jpg",
         "../assets/imgs/img0-2.jpg"
       ],
-      "rating": [],
-      "comments": [],
-      "commentUser": [],
+      "rating": [
+        "5"
+      ],
+      "comments": [
+        "Muy Bonito"
+      ],
+      "commentUser": [
+        "51db"
+      ],
       "id": "sevilla_catedral"
     },
     {
