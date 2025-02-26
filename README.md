@@ -2,7 +2,7 @@
 
 Cuenta con una página de inicio que muestra todas las ubicaciones utilizando el componente 'cards' de Angular Material. Cada tarjeta presenta el nombre del lugar como título, una imagen principal, una breve descripción, las calificaciones promedio de la ubicación y un botón "Leer más" que lleva a la página detallada del sitio.
 
-En la página del sitio específico, el nombre se muestra como título, junto con 9 fotos que muestran una imagen principal central y el resto a los lados. Al hacer clic en una de las imágenes centrales, se reemplaza por la imagen central. A continuación, se proporciona información sobre el sitio, junto con una sección para la calificación.
+En la página del sitio específico, el nombre se muestra como título, junto con fotos que muestran una imagen principal central y el resto a en el lado derecho. Al hacer clic en una de las imágenes centrales, se reemplaza por la imagen central. A continuación, se proporciona información sobre el sitio, junto con una sección para la calificación.
 
 El proyecto incluye un sistema de inicio de sesión y registro que utiliza:
     - librería crypto-js para almacenar la password del usuario encriptada.
