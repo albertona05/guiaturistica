@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.card-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.divBtns {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  width: 48%;
+}
+
+.mat-raised-button {
+  height: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.mat-raised-button:hover {
+  transform: scale(1.05);
+}
+
+.registro{
+  padding-top: 150px;
+  padding-bottom: 300px;
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    width: 95%;
+    padding: 30px;
+  }
+  .registro{
+    padding-top: 150px;
+    padding-bottom: 300px;
+  }
+}

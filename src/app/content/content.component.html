@@ -1,0 +1,76 @@
+<div class="homePage">
+  <h1 *ngIf="place">{{ place.name }}</h1>
+</div>
+
+<mat-grid-list cols="5" rowHeight="170px">
+  <mat-grid-tile [colspan]="3" [rowspan]="4">
+      <img [src]="imagenCentral" alt="Imagen Central" class="imgCentral">
+  </mat-grid-tile>
+
+  <mat-grid-tile 
+      *ngFor="let img of place?.imageGallery" 
+      (click)="cambiarImgCentral(img)">
+      <img [src]="img" alt="Imagen Galería" class="imgPequeña">
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+<div class="parrafos" *ngIf="place">
+  <h2>{{ place.description }}</h2>
+  <h3>{{ place.parrafo1 }}</h3>
+  <h3>{{ place.parrafo2 }}</h3>
+</div>
+
+<div class="commentsRatingDiv" *ngIf="place">
+  <div class="ratingDiv">
+    <h3 class="bold">Valoración:</h3>
+    <h3 class="bold">{{ calcularMedia(place.rating) || 'NV' }}</h3>
+    <mat-icon>{{ calcularMedia(place.rating) ? 'star' : 'star_border' }}</mat-icon>
+  </div>
+
+  <hr>
+
+  <div id="comments">
+    <h3 class="bold">Comentarios</h3>
+
+    <div *ngIf="place.comments?.length > 0; else noComments">
+      <div *ngFor="let comment of place.comments; let i = index" class="comment">
+        <div class="commentRating">
+          <mat-icon>star_rate</mat-icon>
+          <p>{{ place.rating?.[i] || "N/A" }}</p>
+        </div>
+        <p>{{ comment }}</p>
+      </div>
+    </div>
+
+    <ng-template #noComments>
+      <p>No hay comentarios disponibles.</p>
+    </ng-template>
+
+    <div *ngIf="loggedIn && !place.commentUser?.includes(loggedUserId)">
+      <form [formGroup]="formCommentRating" class="commentForm" (submit)="submitformCommentRating()">
+        <mat-form-field appearance="outline">
+          <mat-label>Valoración</mat-label>
+          <mat-select formControlName="rating">
+            <mat-option *ngFor="let rating of possibleRating" [value]="rating">{{ rating }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="formCommentRating.get('rating')?.hasError('required')">
+            Debe indicar una valoración válida
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Escriba su opinión</mat-label>
+          <input matInput placeholder="Opinión" formControlName="comment">
+          <mat-error *ngIf="formCommentRating.get('comment')?.hasError('required')">
+            Debe escribir su opinión
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="formCommentRating.invalid">
+          Enviar valoración
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

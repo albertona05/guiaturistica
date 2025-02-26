@@ -1,0 +1,34 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="logo-container">
+      <img src="../assets/imgs/ayuntamiento-de-cadiz.png" alt="Logo">
+    </div>
+    <h2>Bienvenido</h2>
+    <p>Ingresa tus credenciales para acceder</p>
+
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <div class="input-group">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <mat-icon matPrefix>mail</mat-icon>
+          <input type="email" matInput formControlName="email">
+        </mat-form-field>
+      </div>
+
+      <div class="input-group">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password">
+          <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <button type="submit" mat-raised-button color="accent" class="full-width btn-login" [disabled]="form.invalid">
+        Iniciar sesión
+      </button>
+    </form>
+  </div>
+</div>

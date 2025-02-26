@@ -1,0 +1,53 @@
+<mat-card class="registro">
+  <mat-card-title>Introducir los datos del sitio</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="formPlace" (ngSubmit)="savePlace()">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Descripción breve</mat-label>
+        <textarea matInput rows="2" formControlName="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Párrafo 1</mat-label>
+        <textarea matInput rows="3" formControlName="parrafo1"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Párrafo 2</mat-label>
+        <textarea matInput rows="3" formControlName="parrafo2"></textarea>
+      </mat-form-field>
+
+      <div class="image-upload">
+        <label>Imagen Principal</label>
+        <input type="file" (change)="onFileSelected($event, true)">
+        <div class="image-preview" *ngIf="formPlace.value.imageUrl">
+          <img [src]="formPlace.value.imageUrl">
+          <button mat-icon-button color="warn" (click)="removeImage(true)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="image-gallery">
+        <label>Galería de Imágenes</label>
+        <div class="image-preview" *ngFor="let img of formPlace.value.imageGallery; let i = index">
+          <img [src]="img">
+          <button mat-icon-button color="warn" (click)="removeImage(false, i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <input type="file" (change)="onFileSelected($event, false)">
+      </div>
+
+      <mat-card-actions class="divBtns">
+        <button mat-stroked-button color="warn" (click)="closeDialog()">Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="formPlace.invalid">Guardar</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

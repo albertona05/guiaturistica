@@ -1,0 +1,36 @@
+#footer {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  background-color: #212121; 
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+}
+
+span {
+  margin: 0 10px;
+}
+
+.example-spacer {
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  #footer {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  span {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+}

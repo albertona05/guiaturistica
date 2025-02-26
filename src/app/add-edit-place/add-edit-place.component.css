@@ -1,0 +1,171 @@
+.registro {
+  max-width: 100%;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #F4F4F4;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.mat-form-field .mat-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #7f8c8d;
+}
+
+input, textarea {
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+textarea {
+  resize: vertical;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.image-upload, .image-gallery {
+  margin-top: 20px;
+}
+
+.image-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.image-preview img {
+  border-radius: 8px;
+  max-width: 80px;
+}
+
+button {
+  border-radius: 5px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.mat-stroked-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.mat-stroked-button:hover {
+  background-color: #c0392b;
+}
+
+.mat-raised-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.mat-raised-button:hover {
+  background-color: #2980b9;
+}
+
+.divBtns {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .registro {
+    padding: 15px;
+  }
+
+  .mat-card-title {
+    font-size: 22px;
+  }
+
+  .divBtns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .example-full-width {
+    margin-bottom: 12px;
+  }
+
+  .image-preview img {
+    max-width: 70px;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .image-upload input[type="file"], 
+  .image-gallery input[type="file"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .registro {
+    padding: 10px;
+  }
+
+  .mat-card-title {
+    font-size: 20px;
+  }
+
+  .example-full-width {
+    margin-bottom: 8px;
+  }
+
+  .mat-form-field {
+    font-size: 13px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .image-gallery .image-preview img {
+    max-width: 60px;
+  }
+}

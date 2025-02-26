@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <span routerLink="/inicio" class="enlace">Turismo Sevilla</span>
+  <span class="example-spacer"></span>
+  <span class="example-spacer"></span>
+
+  <!-- Botón de administración visible solo para administradores -->
+  <button *ngIf="isAdmin" mat-button routerLink="adminplaces">Administración de lugares</button>
+
+  <!-- Si el usuario está logueado, muestra su nombre y el botón de cerrar sesión -->
+  <button *ngIf="isAdmin || isUser" mat-flat-button color="accent" class="menuButton" (click)="logout()">
+    Salir ({{ firstname }})
+  </button>
+
+  <!-- Si el usuario NO está logueado, muestra los botones de login y registrar -->
+  <button *ngIf="!isAdmin && !isUser" mat-flat-button color="accent" class="menuButton" routerLink="login">Login</button>
+  <button *ngIf="!isAdmin && !isUser" mat-flat-button color="accent" class="menuButton" routerLink="registrar">Registrar</button>
+</mat-toolbar>
+

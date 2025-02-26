@@ -1,0 +1,92 @@
+<div class="homePage">
+  <h2>Sevilla</h2>
+  <p>
+    Sevilla, la capital de Andalucía, es una ciudad vibrante con una rica historia y cultura. 
+    Famosa por su impresionante Catedral, la Giralda y el Real Alcázar, Sevilla también es el 
+    corazón del flamenco y de la Semana Santa.
+  </p>
+</div>
+
+<!-- Sección de lugares -->
+<mat-grid-list [cols]="gridCols" rowHeight="630px" gutterSize="16px">
+  <mat-grid-tile *ngFor="let place of places">
+    <mat-card class="divCard">
+      <mat-card-header>
+        <mat-card-title>{{ place.name }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="place.imageUrl" [alt]="place.name">
+      <mat-card-content>
+        <h3>{{ descripcionMostrar(place.description) }}</h3>
+      </mat-card-content>
+      <div class="cardEnd">
+        <mat-card-actions>
+          <button mat-button color="primary" [routerLink]="'/sitio/' + place.id">Leer más</button>
+        </mat-card-actions>
+        <mat-card-content>
+          <div class="rating">
+            <mat-icon style="color: yellow">star</mat-icon>
+            <p>{{ calcularMedia(place.rating) }}</p>
+          </div>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!-- Sección de mejores valorados -->
+<div class="homePage">
+  <h2>Mejores Valorados</h2>
+  <mat-grid-list [cols]="gridCols" rowHeight="630px" gutterSize="16px">
+    <mat-grid-tile *ngFor="let place of bestRatedPlaces">
+      <mat-card class="divCard">
+        <mat-card-header>
+          <mat-card-title>{{ place.name }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="place.imageUrl" [alt]="place.name">
+        <mat-card-content>
+          <h3>{{ descripcionMostrar(place.description) }}</h3>
+        </mat-card-content>
+        <div class="cardEnd">
+          <mat-card-actions>
+            <button mat-button color="primary" [routerLink]="'/sitio/' + place.id">Leer más</button>
+          </mat-card-actions>
+          <mat-card-content>
+            <div class="rating">
+              <mat-icon style="color: yellow">star</mat-icon>
+              <p>{{ calcularMedia(place.rating) }}</p>
+            </div>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<!-- Sección de comentarios aleatorios -->
+<div class="homePage">
+  <h2>Comentarios Aleatorios</h2>
+  <div class="random-comments-container">
+    <div *ngFor="let comment of randomComments" class="comment-card">
+      <mat-card class="divCard">
+        <mat-card-header>
+          <mat-card-title>{{ comment.monumentName }}</mat-card-title>
+        </mat-card-header>
+        <div class="comment-content">
+          <img mat-card-image [src]="comment.imageUrl" [alt]="comment.monumentName" class="comment-image">
+          <div class="comment-text">
+            <p>{{ comment.text }}</p>
+            <div class="rating">
+              <mat-icon style="color: yellow">star</mat-icon>
+              <p>{{ comment.rating }}</p>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<!-- Botón para descargar PDF -->
+<div class="homePage btnPdf">
+  <button mat-flat-button color="accent" (click)="descargarPDF()">Descargar PDF</button>
+</div>
